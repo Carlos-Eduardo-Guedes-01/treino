@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="icon" type="icon" href="{% static 'icons/logo-falcao.png' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="falcao">
+            <a class="navbar-brand" href="{% url 'accounts:inicio' %}"><img src="{% static 'img/logo-falcao.jpg' %}" class='img' width="120" height="40"></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'accounts:inicio' %}">Home <span class="sr-only">(Página atual)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Destaques</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Preços</a>
+            </li>
+            <li class="nav-item dropdown">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Ação</a>
+                <a class="dropdown-item" href="#">Outra ação</a>
+                <a class="dropdown-item" href="#">Algo mais aqui</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="{% static 'img/logo-falcao.jpg' %}" alt="logo-falcao">
+        </div>
+        <div class="text-center mt-4 name">
+            Falcão
+        </div>
+        <form class="p-3 mt-3" action="{% url 'accounts:login' %}" method="POST">
+          {% csrf_token %}
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="user" id="user" placeholder="Username">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password">
+            </div>
+            <button class="btn mt-3">Login</button>
+        </form>
+        <div class="text-center fs-6">
+            Não tem conta criada? <a href="{% url 'accounts:cadastro' %}">registre-se</a>
+        </div>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </div>
+</body>
+</html>
