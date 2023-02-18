@@ -26,7 +26,12 @@ body {
   .carousel-item {
     height: 32rem;
   }
-  
+  .carousel-caption{
+    display: flexbox;
+    padding-left: 2%;
+    border-radius: 20px;
+    padding-right: 2%;
+  }
   
   /* MARKETING CONTENT
   -------------------------------------------------- */
@@ -80,3 +85,4 @@ body {
       margin-top: 7rem;
     }
   }
+  body { overflow: hidden; }
