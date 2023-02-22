@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if msg %}
+            <div class="alert {{class}}">
+               {{msg}}
+            </div>
+         {% endif %}
+
+<form class="forms-cad" action="{% url 'falcao:cadastrando' %}" method="POST" >
+    {% csrf_token %}
+    <b>
+    <div class="row">
+      <div class="col-md-4 cool-xs-4">
+        <div class="form-group">
+          <label for="validationDefault01">Nome</label>
+          <input type="text" name="nome" class="form-control" id="validationDefault01" placeholder="Nome do produto" value="" required>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Quantidade</label>
+        <input type="number" name="quantidade" class="form-control" id="validationDefault02" placeholder="Quantidade" value="" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Valor</label>
+        <input type="number" name="valor" class="form-control" id="validationDefault02" placeholder="Preço" value="" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Imagem</label>
+        <div class="input-group">
+          <input type="file" name="img" id="file" class="form-control" placeholder="Imagem do produto">
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault03">Descrição</label>
+        <input type="text" name="descricao" id="cidade" class="form-control" placeholder="Caracteristicas do produto">
+      </div>
+    </div>
+  </div>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+  </b>
+  </form>
+{% endblock %}
