@@ -26,7 +26,8 @@ def cadastrando(request):
         
         query_user=User.objects.get(id=user.id)
         cep=request.POST['cep']
-        usu= instalador.objects.create(usuario=query_user,cidade=cidade,cep=cep)
+        estado=request.POST.get('UF')
+        usu= instalador.objects.create(usuario=query_user,cidade=cidade,cep=cep,uf=estado)
         user.save()
         data['msg'] = 'Instalador Cadastrado com sucesso! Faça Login.'
         data['class'] = 'alert-success'''
@@ -52,3 +53,5 @@ def loged(request):
 def logouts(request):
     logout(request)
     return redirect('accounts:inicio')
+def update(request):
+    pass
