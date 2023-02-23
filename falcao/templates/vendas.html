@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid d-flex flex-wrap">
+    {% for dado in dados %}
+    <div class="card" style="width: 18rem;">    
+        <img class="card-img-top" src="{{dado.produto.imagem.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{dado}}</h5>
+          <h6 class="card-title">R$ {{dado.produto.valor}}</h6>
+          <p class="card-text">{{dado.produto.descricao}}.</p>
+        </div>
+      </div>
+    
+{% endfor %}
+</div>
+{% endblock %}

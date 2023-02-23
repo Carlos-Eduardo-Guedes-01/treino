@@ -12,7 +12,6 @@ def cadastro(request):
 @require_POST
 def cadastrando(request):
     data ={}
-    print('método cadastrando')
     try:
         usuario_aux = User.objects.get(username=request.POST['user'])
         usuario_aux2= User.objects.filter(password=request.POST['password'])
@@ -27,7 +26,7 @@ def cadastrando(request):
         query_user=User.objects.get(id=user.id)
         cep=request.POST['cep']
         estado=request.POST.get('UF')
-        usu= instalador.objects.create(usuario=query_user,cidade=cidade,cep=cep,uf=estado)
+        usu= instalador.objects.create(usuario=query_user,cidade=cidade,cep=cep,uf=estado,total_av=0)
         user.save()
         data['msg'] = 'Instalador Cadastrado com sucesso! Faça Login.'
         data['class'] = 'alert-success'''
@@ -35,23 +34,64 @@ def cadastrando(request):
     #return render(request,'../../accounts/templates/cadastro.html',data)
 def login_view(request):
     data = {}
-    user = authenticate(username=request.POST['user'], password=request.POST['password'])
-    if user is not None:
-        login(request, user)
-        return redirect("accounts:loged")
+    if request.POST:
+        user = authenticate(username=request.POST['user'], password=request.POST['password'])
+        if user is not None:
+            query=instalador.objects.get(usuario=user)
+            if(query):
+                login(request, user)
+                return redirect("accounts:loged")
+            elif(query is False):
+                login(request,user)
+                return
+        else:
+            data['msg'] = 'Usuário ou Senha inválidos!'
+            data['class'] = 'alert-danger'
     else:
-        data['msg'] = 'Usuário ou Senha inválidos!'
+        data['msg'] = 'Campos Inválidos!'
         data['class'] = 'alert-danger'
         return render(request,'../../accounts/templates/index.html', data)
+@login_required(login_url='accounts:login')
 def loged(request):
     user=request.user
+    if user is None:
+        return redirect('accounts:login')
     mode_user=User.objects.get(username=user)
     instalador_=instalador.objects.get(usuario=mode_user.id)
     data={}
     data['nome']=instalador_.usuario.first_name
+    if(user is None):
+        return redirect('accounts:inicio')
     return render(request,'../../falcao/templates/home.html',data)
+@login_required(login_url='accounts:login')
 def logouts(request):
     logout(request)
     return redirect('accounts:inicio')
-def update(request):
-    pass
+@login_required(login_url='accounts:login')
+def changepass(request):
+    user=request.user
+    return render(request, '../../accounts/templates/changepassword.html',{'user':user})
+@login_required(login_url='accounts:login')
+def changePassword(request):
+    senha=request.POST.get("senha_atual")
+    user=request.POST.get("usu")
+    u = User.objects.get(username=user)
+    data=[]
+    context={}
+    if(u is not None):
+        u.set_password(request.POST.get('nova_senha'))
+        u.save()
+        context={
+            'msg':"Senha Alterada com Sucesso!",
+            'class':"alert-success",
+            'user':user
+
+        }
+    else:
+        context={
+            'msg':"Senha Antiga inválida!",
+            'class':"alert-danger"
+        }
+    if(user is None):
+        return redirect('accounts:inicio')
+    return render(request, '../../accounts/templates/index.html',context)

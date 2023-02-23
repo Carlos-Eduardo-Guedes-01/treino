@@ -69,7 +69,7 @@
     <title>Falcão</title>
 </head>
 <body>
-  {% if request.user.is_authenticated %}
+  
   <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <div class="falcao">
@@ -81,7 +81,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'accounts:loged' %}">Home <span class="sr-only">(Página atual)</span></a>
           </li>
-          
+          {% if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'falcao:cadastra-produto' %}">Cadastrar produto</a>
           </li>
@@ -115,13 +115,11 @@
         
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" type="button"  href="{% url 'falcao:perfil' %}">Visualizar total a pagar</a></li>
-                  <li><a class="dropdown-item" href="#">Mudar Senha</a></li>
+                  <li><a class="dropdown-item" href="{% url 'accounts:template-altera' %}">Mudar Senha</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'accounts:logouts' %}">Sair</a></li>
                 </ul>
                {% endif %}
-        </ul>
-        
       </div>
     </nav>
   </header>

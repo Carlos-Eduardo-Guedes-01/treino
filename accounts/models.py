@@ -5,8 +5,8 @@ class instalador(models.Model):
     cep=models.CharField(max_length=255)
     cidade=models.CharField(max_length=255)
     uf=models.CharField(max_length=2)
-    divida=models.FloatField(null=True)
-    total_vendido=models.FloatField()
-    total_av=models.FloatField()
+    divida=models.FloatField(default=0)
+    total_vendido=models.FloatField(default=0)
+    total_av=models.FloatField(default=0)
     def __str__(self):
         return self.usuario.first_name+' '+self.usuario.last_name
