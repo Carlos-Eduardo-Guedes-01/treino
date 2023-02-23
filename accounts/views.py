@@ -1,5 +1,9 @@
 from django.shortcuts import render,redirect
 from .models import *
+import sys
+sys.path.append("administrador/")
+from administrador.models import *
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
@@ -37,10 +41,14 @@ def login_view(request):
     if request.POST:
         user = authenticate(username=request.POST['user'], password=request.POST['password'])
         if user is not None:
-            query=instalador.objects.get(usuario=user)
+            query=instalador.objects.filter(usuario=user.pk)
+            query2=admin.objects.filter(usuario=user.pk)
             if(query):
                 login(request, user)
                 return redirect("accounts:loged")
+            elif(query2):
+                login(request, user)
+                return redirect("administrador:home-adm")
             elif(query is False):
                 login(request,user)
                 return
