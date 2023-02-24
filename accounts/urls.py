@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/',login_view,name='login'),
     path('home/',loged,name='loged'),
     path('logouts/',logouts,name='logouts'),
+    path('busca-autocomplete/', busca_autocomplete,name='busca-autocomplete'),
     path('altera-senha/',changepass, name='template-altera'),
     path('changepassword/',changePassword, name='/changepassword/'),
 ]

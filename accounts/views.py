@@ -2,8 +2,11 @@ from django.shortcuts import render,redirect
 from .models import *
 import sys
 sys.path.append("administrador/")
+sys.path.append("falcao/")
+from falcao.models import *
 from administrador.models import *
-
+from django.http import HttpResponse, JsonResponse
+import json as simplejson
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
@@ -99,3 +102,11 @@ def changePassword(request):
     if(user is None):
         return redirect('accounts:inicio')
     return render(request, '../../accounts/templates/index.html',context)
+def busca_autocomplete(request):
+    if 'term' in request.GET:
+        prod = produtos.objects.filter(nome__contains=request.GET.get('term'))
+        nomes=list()
+        for produto in prod:
+            nomes.append(produto.nome)
+        return JsonResponse(nomes, safe=False)
+    return HttpResponse(prod)
