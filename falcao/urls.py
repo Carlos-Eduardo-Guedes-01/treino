@@ -4,7 +4,6 @@ from .views import *
 name_app='accounts'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('',inicio,name='inicio'),
     path('produtos/',lista_precos,name='produtos'),
     path('cadastrando-produto',cadastra_produto,name='cadastra-produto'),

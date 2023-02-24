@@ -13,10 +13,10 @@ def home_adm(request):
     if(user is None):
         return redirect('accounts:inicio')
     mode_user=User.objects.get(username=user)
-    instalador_=admin.objects.get(usuario=mode_user.id)
+    admini=admin.objects.get(usuario=mode_user.id)
     data={}
-    data['nome']=instalador_.usuario.first_name
-    return render(request,'../../falcao/templates/home.html',data)
+    data['nome']=admini.usuario.first_name
+    return render(request,'../../administrador/templates/home_adm.html',data)
 def form_cadastro(request):
     data={}
     return render(request,'../../administrador/templates/cadastro.html',data)
@@ -39,3 +39,9 @@ def cadastra_adm(request):
     return render(request,'../../accounts/templates/cadastro.html', data)
 def loged_adm(request):
     return render(request,'../../administrador/home.html')
+def template_vender(request):
+    data={}
+    data['produtos']=produtos.objects.all().order_by('nome')
+    data['instalador']=instalador.objects.all().order_by('nome')
+    data['loja']=admin.objects.all().order_by('nome')
+    return render(request,'../../administrador/templates/vender.html',data)

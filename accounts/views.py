@@ -59,17 +59,13 @@ def login_view(request):
         data['msg'] = 'Campos Inválidos!'
         data['class'] = 'alert-danger'
         return render(request,'../../accounts/templates/index.html', data)
+
 @login_required(login_url='accounts:login')
 def loged(request):
     user=request.user
     if user is None:
         return redirect('accounts:login')
-    mode_user=User.objects.get(username=user)
-    instalador_=instalador.objects.get(usuario=mode_user.id)
     data={}
-    data['nome']=instalador_.usuario.first_name
-    if(user is None):
-        return redirect('accounts:inicio')
     return render(request,'../../falcao/templates/home.html',data)
 @login_required(login_url='accounts:login')
 def logouts(request):

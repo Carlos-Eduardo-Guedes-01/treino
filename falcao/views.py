@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import sys
 sys.path.append("accounts/")
+sys.path.append("administrador/")
+from administrador.models import *
 from falcao.models import *
 from accounts.models import *
 from django.contrib.auth.decorators import login_required
@@ -29,7 +31,8 @@ def cadastrando_produto(request):
     valor=request.POST.get('valor')
     img=request.FILES.get('img')
     desc=request.POST.get('descricao')
-    prod=produtos(nome=nome, quantidade=quant, valor=valor, imagem=img,descricao=desc)
+    custo=request.POST.get('custo')
+    prod=produtos(nome=nome, quantidade=quant, valor=valor, imagem=img,descricao=desc,custo=custo)
     prod.save()
     data={}
     data['msg'] = 'Produto Cadastrado com sucesso!'
@@ -46,3 +49,6 @@ def listar_vendas(request):
     data={}
     data['dados']=vendas.objects.filter(instalador=request.user.id)
     return render(request,'../../falcao/templates/vendas.html',data)
+def home(request):
+    languages = Language.objects.all()
+    return render(request,'main/index.html',{"languages":languages})

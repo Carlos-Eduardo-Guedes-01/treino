@@ -8,12 +8,6 @@ class produtos(models.Model):
     quantidade=models.IntegerField()
     imagem=models.ImageField(upload_to='falcao/media')
     descricao=models.TextField()
+    custo=models.FloatField(default=0)
     def __str__(self):
         return self.nome
-class vendas(models.Model):
-    produtos=models.ForeignKey(produtos,on_delete=models.CASCADE)
-    instalador=models.ForeignKey(instalador,on_delete=models.CASCADE)
-    quantidade=models.IntegerField()
-    data=models.DateField()
-    def __str__(self):
-        return self.produtos.nome
