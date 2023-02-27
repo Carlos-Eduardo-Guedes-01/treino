@@ -10,7 +10,11 @@
 }
 
 body {
-    background: #ecf0f3;
+    max-width: 100%;
+    background-image: url("../../accounts/static/img/bg1.jpg"); 
+    margin: 0 auto; 
+    position: relative; 
+    z-index: 2;
 }
 
 .wrapper {

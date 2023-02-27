@@ -1,53 +1,15 @@
-  {% extends 'base.html' %}
-  {% load static %}
-  {% block content %}
-
-  <div class="corpo">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{% static 'img/cerca.jpg' %}" class="d-block w-100" alt="cerca-eletrica">
-        <div class="container">
-          <div class="carousel-caption text-start bg-dark bg-opacity-50">
-            <h1>Montagem de Cerca Elétrica.</h1>
-            <p>Montamos sua cerca elétrica, entre em contato com um de nossos funcionários para fazer um orçamento.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Entrar em contato</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/motor-portao.jpg' %}" class="d-block w-100" alt="motor-de-portao">
-        <div class="container">
-          <div class="carousel-caption bg-dark bg-opacity-50">
-            <h1>Instalamos motores em seus portões</h1>
-            <p>Fazemos a instalação do motor e entregamos totalmente funcional.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Realizar pedido!</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/camera.jpg' %}" class="d-block w-100" alt="camera-de-seguranca">
-        <div class="container">
-          <div class="carousel-caption  bg-dark bg-opacity-50 text-end">
-            <h1>Instalamos Câmeras em suas residências.</h1><br>
-            <p>Verifique nossos pacotes de instalação e faça seu pedido, também fazemos orçamentos de quantidades diferentes de câmeras!</p><br>
-            <p><a class="btn btn-lg btn-primary" href="#">Fazer Orçamento</a></p>
-          </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div id="navigation" class="container">
+  <div class="row">
+  <div class="span12">
+    <ul class="menu menu1 row sf-menu clearfix">
+        <li class="nav1 span3"><a href="index-1.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">01</span><span class="txt2">company</span></a></li>
+        <li class="nav2 span3"><a href="index-2.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">02</span><span class="txt2">SERVICES</span></a></li>
+    </ul>
   </div>
   </div>
+</div>
+</div>
 {% endblock %}

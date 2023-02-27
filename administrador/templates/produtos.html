@@ -1,25 +1,21 @@
 {% extends 'base_adm.html' %}
 {% load static %}
 {% block content %}
-<div class="container-fluid d-flex flex-wrap">
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
     {% for produto in produtos %}
-    <div class="card" style="width: 18rem;">    
+    <div class="card-header">
       {% if not produto.imagem %}
-      <img class="card-img-top" src="{% static 'img/sem-imagem.jpg' %}" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'img/sem-imagem.jpg' %}" alt="Card image cap" width="30" heigth="55">
       {% endif %}
       {% if produto.imagem %}
-      <img class="card-img-top" src="{{produto.imagem.url}}" alt="Card image cap">
+      <img class="card-img-top" src="{{produto.imagem.url}}" alt="Card image cap"  width="100" heigth="180">
       {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{produto.nome}}</h5>
-          <h6 class="card-title">R$ {{produto.valor}}</h6>
-          <p class="card-text">{{produto.descricao}}.</p>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Alterar</a>
-          </div>
-        </div>
-      </div>
-    
+    </div>
+      <h5 class="card-title">{{produto.nome}}</h5>
+      <p class="card-text">R$ {{produto.valor}}</p>
+      <p class="card-text">{{produto.descricao}}.</p>
+    </div>
+  </div>    
 {% endfor %}
 </div>
 {% endblock %}

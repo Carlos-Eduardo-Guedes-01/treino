@@ -2,59 +2,47 @@
 {% load static %}
 {% block content %}
 
-<main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="{% static 'img/cerca.jpg' %}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Montagem de Cerca Elétrica.</h1>
-            <p>Montamos sua cerca elétrica, entre em contato com um de nossos funcionários para fazer um orçamento.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Entrar em contato</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Instalamos motores em seus portões</h1>
-            <p>Fazemos a instalação do motor e entregamos totalmente funcional.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Realizar pedido!</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>Instalamos Câmeras em suas residências.</h1>
-            <p>Verifique nossos pacotes de instalação e faça seu pedido, também fazemos orçamentos de quantidades diferentes de câmeras!</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Fazer Orçamento</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<div id="navigation" class="container">
+  <div class="row">
+  <div class="span12">
+    <ul class="menu menu1 row sf-menu clearfix">
+        <li class="nav1 span3"><a href="index-1.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">01</span><span class="txt2">company</span></a></li>
+        <li class="nav2 span3"><a href="index-2.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">02</span><span class="txt2">SERVICES</span></a></li>
+        <li class="nav3 span3"><a href="index-3.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">03</span><span class="txt2">coverage map</span></a></li>
+        <li class="active nav4 span3 sub-menu sub-menu-1"><a href="index-4.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">04</span><span class="txt2">solutions</span></a>
+      <ul>
+        <li><a href="index-4.html">Networking</a></li>
+        <li class="sub-menu sub-menu-2"><a href="index-4.html">Internet<em></em></a>
+          <ul>
+            <li><a href="index-4.html">lorem ipsum dolor</a></li>
+            <li><a href="index-4.html">sit amet</a></li>
+            <li><a href="index-4.html">adipiscing elit</a></li>
+            <li><a href="index-4.html">nunc suscipit</a></li>
+            <li><a href="404.html">404 page not found</a></li>
+          </ul>
+        </li>
+        <li class="sub-menu sub-menu-2"><a href="index-4.html">Voice<em></em></a>
+          <ul>
+            <li><a href="index-4.html">lorem ipsum dolor</a></li>
+            <li><a href="index-4.html">sit amet</a></li>
+            <li><a href="index-4.html">adipiscing elit</a></li>
+            <li><a href="index-4.html">nunc suscipit</a></li>									
+          </ul>
+        </li>
+        <li><a href="index-4.html">Message</a></li>						
+      </ul>
+        </li>      										
+      </ul>
+      <ul class="menu menu2 row sf-menu clearfix">
+        <li class="nav5 span3"><a href="index-5.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">05</span><span class="txt2">support</span></a></li>
+        <li class="nav6 span3"><a href="index-6.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">06</span><span class="txt2">clients</span></a></li>
+        <li class="nav7 span3"><a href="index-7.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">07</span><span class="txt2">location</span></a></li>
+        <li class="nav8 span3"><a href="index-8.html"><span class="over1"></span><span class="over2"></span><span class="ic1"></span><span class="txt1">08</span><span class="txt2">contacts</span></a></li>      										
+      </ul>
+      <div class="hl1"></div>
+  </div>	
+  </div>	
   </div>
-  <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
-</main>
+
 {% endblock %}
