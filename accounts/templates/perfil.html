@@ -1,62 +1,67 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
-<div class="container d-flex justify-content-center align-items-center w-100">
+<div class="corpo">
+    <div id="navigation" class="container mt-n1">
+      <div class="row">
+        <div class="container d-flex justify-content-center align-items-center w-100 mt-n1">
              
-    <div class="card text-center">
+          <div class="card text-center">
 
-     <div class="upper">
+            <div class="upper">
 
-       <img src="{% static 'icons/logo-falcao.ico' %}" class="img-fluid">
+              <img src="{% static 'icons/logo-falcao.ico' %}" class="img-fluid">
        
-     </div>
+            </div>
 
-     <div class="user text-center">
+            <div class="user text-center">
 
-       <div class="profile">
+              <div class="profile">
 
-         <img src="{% static 'icons/usuario.ico' %}" class="rounded-circle" width="80">
+                <img src="{% static 'icons/usuario.ico' %}" class="rounded-circle" width="80">
+        
+              </div>
+
+            </div>
+
+
+            <div class="mt-5 text-center" style="color:black;">
+
+              <h4 class="mb-0 text-secondary"><b>{{dados}}</b></h4>
+              <span class="text-muted d-block mb-2 text-secondary">{{dados.cidade}} - {{dados.uf}}</span>
+              <h5 class="mb-0"> Sua dívida atual é de R$ &nbsp;<b class="text-danger">{{dados.divida}}</b></h5>
+
+
+              <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+
+                <div class="stats text-secondary">
+                  <h6 class="mb-0 text-secondary">Total</h6>
+                  <span>{{dados.total_vendido}}</span>
+
+                </div>
+
+
+                <div class="stats text-secondary">
+                  <h6 class="mb-0 text-secondary">AV</h6>
+                <span>{{dados.total_av}}</span>
+
+                </div>
+
+
+                <div class="stats text-secondary">
+                  <h6 class="mb-0 text-secondary">Vendas</h6>
+                  <span><a class="dropdown-item" href="{% url 'falcao:lista-vendas' %}">Ver lista</a></li></span>
+
+                </div>
          
-       </div>
-
-     </div>
-
-
-     <div class="mt-5 text-center">
-
-       <h4 class="mb-0"><b>{{dados}}</b></h4>
-       <span class="text-muted d-block mb-2">{{dados.cidade}} - {{dados.uf}}</span>
-       <h5 class="mb-0"> Sua dívida atual é de R$ &nbsp;<b class="text-danger">{{dados.divida}}</b></h5>
-
-
-       <div class="d-flex justify-content-between align-items-center mt-4 px-4">
-
-         <div class="stats">
-           <h6 class="mb-0">Total</h6>
-           <span>{{dados.total_vendido}}</span>
-
-         </div>
-
-
-         <div class="stats">
-           <h6 class="mb-0">AV</h6>
-           <span>{{dados.total_av}}</span>
-
-         </div>
-
-
-         <div class="stats">
-           <h6 class="mb-0">Vendas</h6>
-           <span><a class="dropdown-item" href="{% url 'falcao:lista-vendas' %}">Ver lista</a></li></span>
-
-         </div>
-         
-       </div>
+              </div>
        
-     </div>
+            </div>
       
-    </div>
+          </div>
 
-  </div>
+        </div>
+      </div>
+    </div>
+</div>
 {% endblock %}

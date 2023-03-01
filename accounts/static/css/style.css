@@ -1,7 +1,15 @@
+div.mt-5.text-center{
+  margin-top: 0%;
+}
+div.card.text-center{
+  margin-top: 0%;
+}
 footer {
   position: fixed;
-  bottom:0;
+  bottom:-2%;
   left:0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .corpo{
   width: 100%;

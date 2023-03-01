@@ -10,7 +10,33 @@
 <meta name="author" content="Your name">
 <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
-
+<script src=  
+"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+<script src=  
+"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+    
+    <script src=  
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href=  
+"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="icon" type="icon" href="{% static 'icons/logo-falcao.ico' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="{% static 'css/carrousel.css' %}" rel="stylesheet">    
+    <script src=  
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href=  
+"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />  
 <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" media="screen">
 <link rel="stylesheet" href="{% static 'css/bootstrap-responsive.css' %}" type="text/css" media="screen">  
 <link rel="stylesheet" href="{% static 'css/supersized.core.css' %}" type="text/css" media="screen">  
@@ -84,54 +110,7 @@
   }
   
 </style>
-<script>
-$(document).ready(function() {
-	/////// icons
-	//$(".social li").find("a").css({opacity:0.6});
-	$(".social li a").hover(function() {
-		$(this).stop().animate({opacity:0.6 }, 400, 'easeOutExpo');		    
-	},function(){
-	    $(this).stop().animate({opacity:1 }, 400, 'easeOutExpo' );		   
-	}); 
 
-	
-
-}); //
-$(window).load(function() {
-
-	// isotop
-	var $container = $('#isotope-items'),
-		$optionSet = $('#isotope-options'), 
-	    $optionSets = $('#isotope-filters'), 
-	    $optionLinks = $optionSets.find('a'); 
-    $container.isotope({ 
-        filter: '*',
-        layoutMode: 'fitRows'
-    });  
-   	$optionLinks.click(function(){ 
-   		var $this = $(this); 
-    	// don't proceed if already selected 
-		if ( $this.hasClass('selected') ) { 
-			return false; 
-		}    		
-   		$optionSet.find('.selected').removeClass('selected'); 
-   		$this.addClass('selected');
-
-        var selector = $(this).attr('data-filter'); 
-        $container.isotope({ 
-            filter: selector            
-        }); 
-      	return false; 
-    });    	
-	$(window).on("resize", function( event ) {	
-		$container.isotope('reLayout');		
-	});		
-
-	// touchTouch
-	$('.thumb-isotope .thumbnail a').touchTouch();
-
-}); //
-</script>		
 <!--[if lt IE 8]>
 		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>  
 	<![endif]-->    
@@ -158,30 +137,29 @@ $(window).load(function() {
           <div class="menu_top">
                 <ul id="menu_top" class="clearfix">
                   <li><a href="{% url 'accounts:loged'%}" style="font-size: 16pt;">HOME</a></li>
-                  <div class="top2">
-                    <div class="topnav">
-                      <div class="search-container">
-                        <form action="{% url 'falcao:produtos' %}" method="POST" id="myForm">
+                  <div class="topnav">
+                    <div class="search-container">
+                      <form action="{% url 'falcao:produtos' %}" method="POST" id="myForm">
                         {% csrf_token %}
-                        <input type="text" id="tags" placeholder="Search.." name="search" class="search">
+                        <input type="text" id="tags" placeholder="Search.." name="search">
                         <script>
-                          $(function () {
-                            var elemento = document.getElementById('#tags');
-                            var availableTags = [
-                            {% for p in prod %}
-                            "{{p.nome}}",
-                            {% endfor %}
+                            $(function () {
+                              var elemento = document.getElementById('#tags');
+                                var availableTags = [
+                                {% for p in prod %}
+                                "{{p.nome}}",
+                                {% endfor %}
                         ];
                         
-                          $("#tags").autocomplete({
-                            source: '{% url "accounts:busca-autocomplete" %}'
-                          });
-                        } );
+                            $("#tags").autocomplete({
+                                source: '{% url "accounts:busca-autocomplete" %}'
+                            });
+                      } );
                         </script>
-                        <button type="submit" class="btn-primary" style="background-color: #2468ae; color: white;">Buscar</button>
-                        </form>
-                      </div>
-                      </div>          
+                        <button type="submit">Buscar</button>
+                      </form>
+                    </div>
+                  </div>      
                 </ul>
           </div>
         </div>
@@ -203,5 +181,10 @@ $(window).load(function() {
 		Copyright © 2013.All rights reserved.  |    <a href="#">Privacy Policy</a>
 	</div>
 </footer>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
 </body>
 </html>

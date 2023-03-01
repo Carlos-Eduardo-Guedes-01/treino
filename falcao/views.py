@@ -49,6 +49,3 @@ def listar_vendas(request):
     data={}
     data['dados']=vendas.objects.filter(instalador=request.user.id)
     return render(request,'../../falcao/templates/vendas.html',data)
-def home(request):
-    languages = Language.objects.all()
-    return render(request,'main/index.html',{"languages":languages})
