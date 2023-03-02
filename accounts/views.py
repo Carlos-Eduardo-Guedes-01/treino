@@ -29,6 +29,7 @@ def cadastrando(request):
     except User.DoesNotExist:
         user = User.objects.create_user(username=request.POST['user'], first_name=request.POST['first_name'],last_name= request.POST['last_name'], password=request.POST['password'])
         cidade = request.POST['cidade']
+        
         query_user=User.objects.get(id=user.id)
         cep=request.POST['cep']
         estado=request.POST.get('UF')
