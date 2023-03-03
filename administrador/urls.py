@@ -8,4 +8,5 @@ urlpatterns = [
     path('home-adm/',home_adm, name='home-adm'),
     path('cadastro-form/',form_cadastro, name='cadastro-form'),
     path('cadastro-admin/',cadastra_adm, name='cadastro-adm'),
+    path('home-adm/instaladores',instaladores,name='instaladores'),
 ]

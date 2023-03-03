@@ -1,0 +1,12 @@
+{% extends 'base_adm.html' %}
+{% load static %}
+{% block content %}
+<div class='text-light '>
+<i class="fa-sharp fa-solid fa-plus"></i> Adicionar instalador
+</div>
+{% for instalador in instaladores %}
+<ul class="list-group">
+  <li class="list-group-item">{{instalador.usuario}}</li>
+</ul>
+{% endfor %}
+{% endblock %}

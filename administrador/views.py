@@ -42,6 +42,14 @@ def loged_adm(request):
 def template_vender(request):
     data={}
     data['produtos']=produtos.objects.all().order_by('nome')
-    data['instalador']=instalador.objects.all().order_by('nome')
+    data['instalador']=instalador.objects.all().order_by('usuario')
     data['loja']=admin.objects.all().order_by('nome')
     return render(request,'../../administrador/templates/vender.html',data)
+def instaladores(request):
+    data={}
+    query2=instalador.objects.all()
+    print(query2)
+    id_instalador=query2.usuario
+    
+    data['instalador']=User.objects.filter(id=id_instalador).order_by('first_name')
+    return render(request,'../../administrador/templates/instaladores.html', data)
