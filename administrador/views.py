@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 import sys
 sys.path.append("accounts/")
 sys.path.append("falcao/")
@@ -47,9 +47,5 @@ def template_vender(request):
     return render(request,'../../administrador/templates/vender.html',data)
 def instaladores(request):
     data={}
-    query2=instalador.objects.all()
-    print(query2)
-    id_instalador=query2.usuario
-    
-    data['instalador']=User.objects.filter(id=id_instalador).order_by('first_name')
+    data['instaladores']=instalador.objects.all().order_by("usuario")
     return render(request,'../../administrador/templates/instaladores.html', data)

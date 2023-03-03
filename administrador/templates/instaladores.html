@@ -4,9 +4,26 @@
 <div class='text-light '>
 <i class="fa-sharp fa-solid fa-plus"></i> Adicionar instalador
 </div>
+<table class="table table-bordered text-light display-8 ">
+
+  <thead>
+    <tr>
+      <h5><th scope="col">#</th></h5>
+      <h5><th scope="col">Primeiro Nome</th></h5>
+      <h5><th scope="col">Sobrenome</th></h5>
+      <h5><h5><th scope="col">Usuario</th></h5></h5>
+    </tr>
+  </thead>
 {% for instalador in instaladores %}
-<ul class="list-group">
-  <li class="list-group-item">{{instalador.usuario}}</li>
-</ul>
+  <tbody>
+    <tr>
+      <h5><th scope="row">{{i}}</th></h5>
+      <h5><td>{{instalador.usuario.first_name}}</td></h5>
+      <h5><td>{{instalador.usuario.last_name}}</td></h5>
+      <h5><td>{{instalador.usuario}}</td></h5>
+    </tr>
+  </tbody>
 {% endfor %}
+
+</table>
 {% endblock %}
