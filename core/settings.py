@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'searchableselect',
     'accounts',
     'falcao',
     'administrador',
@@ -125,3 +126,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'

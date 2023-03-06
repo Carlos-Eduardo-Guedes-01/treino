@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path('searchableselect/',include('searchableselect.urls')),
     path('',include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('',include(('falcao.urls', 'falcao'), namespace='falcao')),
     path('',include(('administrador.urls', 'administrador'), namespace='administrador')),

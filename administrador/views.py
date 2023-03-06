@@ -6,7 +6,7 @@ from falcao.models import *
 from accounts.models import *
 from administrador.models import *
 from django.contrib.auth.decorators import login_required
-
+from .forms import VendaForm
 @login_required(login_url='accounts:login')
 def home_adm(request):
     user=request.user
@@ -19,7 +19,7 @@ def home_adm(request):
     return render(request,'../../administrador/templates/home_adm.html',data)
 def form_cadastro(request):
     data={}
-    return render(request,'../../administrador/templates/cadastro.html',data)
+    return render(request,'../../administrador/templates/cadastro_adm.html',data)
 def cadastra_adm(request):
     data ={}
     try:
@@ -81,3 +81,7 @@ def perfil_instaladores(request,id):
     data={}
     data['dados']=get_object_or_404(instalador,pk=id)
     return render(request,'../../administrador/templates/perfis.html', data)
+def template_venda(request):
+    data={}
+    data['form']=VendaForm()
+    return render(request,'../../administrador/templates/vender.html',data)

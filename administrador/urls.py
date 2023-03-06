@@ -11,5 +11,6 @@ urlpatterns = [
     path('home-adm/instaladores',instaladores,name='instaladores'),
     path('adm/altera-senha/',changepass_adm, name='template-altera-adm'),
     path('adm/changepassword/',changePassword_adm, name='/changepassword-adm/'),
-    path('adm/perfil-instalador/<int:id>/',perfil_instaladores,name='perfis')
+    path('adm/perfil-instalador/<int:id>/',perfil_instaladores,name='perfis'),
+    path('adm/vender/',template_venda,name='template-venda'),
 ]

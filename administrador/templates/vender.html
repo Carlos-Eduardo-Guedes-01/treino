@@ -1,5 +1,4 @@
 {% extends 'base_adm.html' %}
-
 {% block content %}
 {% if msg %}
             <div class="alert {{class}}">
@@ -13,27 +12,27 @@
     <div class="row">
       <div class="col-md-4 cool-xs-4">
         <div class="form-group">
-          <label for="validationDefault01">Primeiro nome</label>
-          <input type="text" name="first_name" class="form-control" id="validationDefault01" placeholder="Nome" value="" required>
+          <label for="validationDefault01">Produto(s)</label>
+          {{form.produtos}}
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefault02">Sobrenome</label>
-        <input type="text" name="last_name" class="form-control" id="validationDefault02" placeholder="Sobrenome" value="" required>
+        <label for="validationDefault02">Resposavel</label>
+        {{form.instalador}}
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">Usuário</label>
+        <label for="validationDefaultUsername">Quantidade</label>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            <span class="input-group-text" id="inputGroupPrepend2">Nº</span>
           </div>
-          <input type="text" name="user" id="user" class="form-control" placeholder="Usuário">
+          {{form.quantidade}}
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">Senha</label>
+        <label for="validationDefaultUsername">Data</label>
         <div class="input-group">
-          <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
+          {{form.data}}
         </div>
       </div>
     </div>
@@ -49,5 +48,9 @@
     <button class="btn btn-primary" type="submit">Enviar</button>
   </b>
   </form>
-
+  <script>
+    $(document).ready(function() {
+        $('#produtos').select2();
+    });
+</script>
 {% endblock %}
