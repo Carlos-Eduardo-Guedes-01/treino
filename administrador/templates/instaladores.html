@@ -1,10 +1,15 @@
 {% extends 'base_adm.html' %}
 {% load static %}
 {% block content %}
-<div class='text-light '>
-<i class="fa-sharp fa-solid fa-plus"></i> Adicionar instalador
+<div class="top2">
+   <div class="menu_top">
+    <ul id="menu_top" class="clearfix">
+      <li><a href="{% url 'accounts:cadastro' %}" style="font-size: 16pt;"><i class="fa-sharp fa-solid fa-plus"></i> Adicionar instalador</a></li>
+    </ul>
+   </div>
 </div>
-<table class="table table-bordered text-light display-8 ">
+
+<table class="table table-bordered text-light" style="font-size: 14pt;">
 
   <thead>
     <tr>
@@ -18,7 +23,7 @@
   <tbody>
     <tr>
       <h5><th scope="row">{{i}}</th></h5>
-      <h5><td>{{instalador.usuario.first_name}}</td></h5>
+      <h5><td><a href="{% url 'administrador:perfis' id=instalador.id%}">{{instalador.usuario.first_name}}</a></td></h5>
       <h5><td>{{instalador.usuario.last_name}}</td></h5>
       <h5><td>{{instalador.usuario}}</td></h5>
     </tr>

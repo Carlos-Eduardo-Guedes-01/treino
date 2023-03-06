@@ -176,8 +176,8 @@
           <div class="menu_top">
                 <ul id="menu_top" class="clearfix">
                  
-                  <li><a href="{% url 'accounts:loged'%}" style="font-size: 16pt;">HOME</a></li>
-                  <li><a class="dropdown-item" href="{% url 'accounts:template-altera' %}" style="font-size: 16pt;">Mudar Senha</a></li>
+                  <li><a href="{% url 'administrador:admin'%}" style="font-size: 16pt;">HOME</a></li>
+                  <li><a class="dropdown-item" href="{% url 'administrador:template-altera-adm' %}" style="font-size: 16pt;">Mudar Senha</a></li>
                   <li><a class="dropdown-item" href="{% url 'accounts:logouts' %}" style="font-size: 16pt;">Sair</a></li>
                 </ul>
           </div>
@@ -185,7 +185,7 @@
             <div class="search-container">
               <form action="{% url 'falcao:produtos' %}" method="POST" id="myForm">
                 {% csrf_token %}
-                <input type="text" id="tags" placeholder="Search.." name="search">
+                <input type="text" id="tags" placeholder="Search.." name="search" class="search">
                 <script>
                     $(function () {
                       var elemento = document.getElementById('#tags');

@@ -49,3 +49,35 @@ def instaladores(request):
     data={}
     data['instaladores']=instalador.objects.all().order_by("usuario")
     return render(request,'../../administrador/templates/instaladores.html', data)
+@login_required(login_url='accounts:login')
+def changepass_adm(request):
+    user=request.user
+    return render(request, '../../administrador/templates/changepassword_adm.html',{'user':user})
+@login_required(login_url='accounts:login')
+def changePassword_adm(request):
+    senha=request.POST.get("senha_atual")
+    user=request.POST.get("usu")
+    u = User.objects.get(username=user)
+    data=[]
+    context={}
+    if(u is not None):
+        u.set_password(request.POST.get('nova_senha'))
+        u.save()
+        context={
+            'msg':"Senha Alterada com Sucesso!",
+            'class':"alert-success",
+            'user':user
+
+        }
+    else:
+        context={
+            'msg':"Senha Antiga inválida!",
+            'class':"alert-danger"
+        }
+    if(user is None):
+        return redirect('accounts:inicio')
+    return render(request, '../../accounts/templates/index.html',context)
+def perfil_instaladores(request,id):
+    data={}
+    data['dados']=get_object_or_404(instalador,pk=id)
+    return render(request,'../../administrador/templates/perfis.html', data)
