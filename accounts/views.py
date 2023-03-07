@@ -61,7 +61,7 @@ def login_view(request):
     else:
         data['msg'] = 'Campos Inválidos!'
         data['class'] = 'alert-danger'
-        return render(request,'../../accounts/templates/index.html', data)
+    return render(request,'../../accounts/templates/index.html', data)
 
 @login_required(login_url='accounts:login')
 def loged(request):

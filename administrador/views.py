@@ -83,5 +83,6 @@ def perfil_instaladores(request,id):
     return render(request,'../../administrador/templates/perfis.html', data)
 def template_venda(request):
     data={}
+    choices=produtos.objects.all()
     data['form']=VendaForm()
     return render(request,'../../administrador/templates/vender.html',data)
