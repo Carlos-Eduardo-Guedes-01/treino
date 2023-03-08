@@ -83,6 +83,20 @@ def perfil_instaladores(request,id):
     return render(request,'../../administrador/templates/perfis.html', data)
 def template_venda(request):
     data={}
-    choices=produtos.objects.all()
     data['form']=VendaForm()
+    return render(request,'../../administrador/templates/vender.html',data)
+def vendendo(request):
+    data={}
+    if request.method == "POST":
+        form = VendaForm(request.POST)
+        if form.is_valid():
+            livro = form.save(commit=False)
+            form.save()
+            data['msg'] = 'Venda realizada com sucesso!'
+            data['class'] = 'alert-success'
+        else:
+            data['msg'] = 'Valha ao cadastrar a venda!'
+            data['class'] = 'alert-danger'
+    else:
+        form = VendaForm()
     return render(request,'../../administrador/templates/vender.html',data)

@@ -7,6 +7,7 @@ from accounts.models import *
 from falcao.models import *
 class admin(models.Model):
     usuario=models.OneToOneField(User, on_delete=models.CASCADE)
+    valor_vendas=models.FloatField(default=0)
     def __str__(self):
         return self.usuario.first_name+' '+self.usuario.last_name
 class vendas(models.Model):
@@ -16,12 +17,3 @@ class vendas(models.Model):
     data=models.DateField()
     def __str__(self):
         return self.produtos.nome
-class produto_admin(models.Model):
-    nome=models.CharField(max_length=255)
-    valor=models.FloatField()
-    quantidade=models.IntegerField()
-    imagem=models.ImageField(upload_to='falcao/media')
-    descricao=models.TextField()
-    custo=models.FloatField(default=0)
-    def __str__(self):
-        return self.nome
