@@ -15,5 +15,6 @@ class vendas(models.Model):
     instalador=models.ForeignKey(instalador,on_delete=models.CASCADE)
     quantidade=models.IntegerField()
     data=models.DateField()
+    valor_venda=models.FloatField(default=0.0)
     def __str__(self):
         return self.produtos.nome

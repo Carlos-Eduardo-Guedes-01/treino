@@ -209,8 +209,14 @@
       </div>
       {% endif %}
     </div>	
-    </div>	
-    </div>	
+    </div>
+    	{% if soma %}
+      Valor da venda: {{venda}}
+      {% endif %}
+      {% if lucro %}
+      Valor da lucro: {{lucro}}
+      {% endif %}
+    </div>
     </header>
 {% block content %}
 

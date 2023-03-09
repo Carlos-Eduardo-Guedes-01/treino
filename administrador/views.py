@@ -110,5 +110,8 @@ def filtro_vendas(request):
     mes=request.POST.get('mess')
     ano=request.POST.get('ano')
     data={}
+    print("ano:",ano)
+    print("mes:",mes)
     data['vendas']=vendas.objects.filter(Q(data__year=ano) & Q(data__month=mes))
+    
     return render(request,'../../administrador/templates/vendas.html',data)

@@ -51,10 +51,33 @@
         </div>
       </div>
       <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Preço</label>
+        {{form.preco}}
+        <script>
+          var productSelect = document.getElementById('id_product');
+          var priceInput = document.getElementById('id_price');
+          
+          productSelect.addEventListener('change', function() {
+              var selectedProduct = productSelect.value;
+              var price = getProductPrice(selectedProduct);
+              priceInput.value = price;
+          });
+          
+          function getProductPrice(productId) {
+              // Lógica para obter o preço do produto com base no ID do produto selecionado
+              // Você pode fazer isso de várias maneiras, dependendo de como os preços dos produtos são armazenados em seu banco de dados.
+              // Por exemplo, você pode criar um objeto JavaScript com preços de produto mapeados para IDs de produto, e obter o preço do produto selecionado assim:
+              var prices = {
+                  "{{produto.nome}}": "produto.preco",
+              };
+              return prices[productId];
+          }
+      </script>
+      </div>
+      <div class="col-md-4 mb-3">
         <label for="validationDefault02">Resposavel</label>
         {{form.instalador}}
       </div>
-      
       <div class="col-md-4 mb-3">
         <label for="validationDefaultUsername">Quantidade</label>
         <div class="input-group">

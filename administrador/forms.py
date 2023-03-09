@@ -15,9 +15,9 @@ class VendaForm(forms.ModelForm):
         fields = ('produtos','instalador','quantidade','data')
         hj=date.today()
         widgets = {
-            'produtos': forms.Select(attrs={ 'class': 'form-control'}),
+            'produtos': forms.Select(attrs={ 'class': 'form-control', 'id':'id_product'}),
             'instalador': forms.Select(attrs={ 'class': 'form-control'}),
             'quantidade': forms.TextInput(attrs={ 'class': 'form-control'}),
             'data': forms.DateInput(attrs={ 'class': 'form-control','value':hj,'readonly':'readonly'}),
-            
+            'preco':forms.TextInput(attrs={'class':'form-control','id':'id_price'}),
         }
