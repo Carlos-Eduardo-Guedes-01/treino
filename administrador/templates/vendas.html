@@ -1,0 +1,22 @@
+{% extends 'base_adm.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid d-flex flex-wrap">
+    {% for venda in vendas %}
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header">
+            {% if not venda.produtos.imagem %}
+            <img class="card-img-top" src="{% static 'img/sem-imagem.jpg' %}" alt="Card image cap" width="564" height="150">
+            {% endif %}
+            {% if venda.produtos.imagem %}
+            <img class="card-img-top" src="{{venda.produto.imagem.url}}" alt="Card image cap"  width="564" height="150">
+            {% endif %}</div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">{{venda.produtos.nome}}</h5>
+            <p class="card-text">R$ {{venda.produtos.valor}}<br>{{venda.produtos.descricao}} </p>
+          </div>
+        </div>
+    
+{% endfor %}
+</div>
+{% endblock %}

@@ -7,6 +7,8 @@ from accounts.models import *
 from administrador.models import *
 from django.contrib.auth.decorators import login_required
 from .forms import VendaForm
+from datetime import date
+from django.db.models import Q
 @login_required(login_url='accounts:login')
 def home_adm(request):
     user=request.user
@@ -95,8 +97,18 @@ def vendendo(request):
             data['msg'] = 'Venda realizada com sucesso!'
             data['class'] = 'alert-success'
         else:
-            data['msg'] = 'Valha ao cadastrar a venda!'
+            data['msg'] = 'Falha ao cadastrar a venda!'
             data['class'] = 'alert-danger'
     else:
         form = VendaForm()
     return render(request,'../../administrador/templates/vender.html',data)
+def vendas_template(request):
+    data={}
+    data['anos'] = [i for i in range(date.today().year, 1999, -1)]
+    return render(request,'../../administrador/templates/filtro_vendas.html',data)
+def filtro_vendas(request):
+    mes=request.POST.get('mess')
+    ano=request.POST.get('ano')
+    data={}
+    data['vendas']=vendas.objects.filter(Q(data__year=ano) & Q(data__month=mes))
+    return render(request,'../../administrador/templates/vendas.html',data)

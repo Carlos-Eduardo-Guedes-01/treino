@@ -1,0 +1,41 @@
+{% extends 'base_adm.html' %}
+{% load static %}
+{% block content %}
+<form class="forms-cad text-white" action="{% url 'administrador:vendas' %}" method="POST" >
+    {% csrf_token %}
+    <b>
+        <div class="row">
+            <div class="col-md-4 cool-xs-4">
+                <div class="form-group">
+                    <label for="validationDefault01">Diga o Mês que deseja ver as vendas</label>
+                    <select name="mes" id="cars" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4 cool-xs-4">
+                <div class="form-group">
+                    <label for="validationDefault01">Diga o Ano que deseja ver as vendas</label>
+                    <select class="form-control" name="ano">
+                        {% for ano in anos %}
+                            <option value="{{ano}}">{{ano}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar</button>
+    </b>
+</form>
+{% endblock %}

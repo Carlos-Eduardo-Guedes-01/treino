@@ -11,7 +11,7 @@ class admin(models.Model):
     def __str__(self):
         return self.usuario.first_name+' '+self.usuario.last_name
 class vendas(models.Model):
-    produtos=models.ManyToManyField(produtos)
+    produtos=models.ForeignKey(produtos,on_delete=models.CASCADE)
     instalador=models.ForeignKey(instalador,on_delete=models.CASCADE)
     quantidade=models.IntegerField()
     data=models.DateField()
